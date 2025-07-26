@@ -9,12 +9,6 @@ public class MainManager : MonoBehaviour
     // buttons
     private Button backToMenuButton;
     private Button restartButton;
-
-    // scores and levels
-    private int points;
-    private static int highScore;
-    private bool firstTimeHighScore;
-    public float level;
     
     // UI
     public TextMeshProUGUI scoreCounterText;
@@ -27,6 +21,13 @@ public class MainManager : MonoBehaviour
 
     // other managers
     public SpawnManager spawnManager;
+    public LevelLoader levelLoader;
+
+    // scores and levels
+    private int points;
+    private static int highScore;
+    private bool firstTimeHighScore;
+    public float level;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,12 +57,12 @@ public class MainManager : MonoBehaviour
 
     private void BackToMenu()
     {
-        SceneManager.LoadScene("Title");
+        levelLoader.LoadLevel("Title");
     }
 
     private void Restart()
     {
-        SceneManager.LoadScene("Main");
+        levelLoader.LoadLevel("Main");
     }
 
     public void AddPoints(int pointsToAdd)
@@ -107,7 +108,6 @@ public class MainManager : MonoBehaviour
         spawnManager.SpeedUp(level);
     }
 
-    // ABSTRACTION
     IEnumerator FlashText(GameObject text, int flashTimes, float waitTime)
     {
         for (int i = 0; i < flashTimes; i++)

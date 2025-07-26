@@ -1,12 +1,12 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleUIManager : MonoBehaviour
 {
     private Button startButton;
     private Button exitButton;
+    public LevelLoader levelLoader;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +27,7 @@ public class TitleUIManager : MonoBehaviour
 
     private void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        levelLoader.LoadLevel("Main");
     }
 
     private void ExitGame()
