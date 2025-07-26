@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Unity-Jr-Programmer-Final.sln"
+    "dotnet.defaultSolution": "speedway.sln"
 }
