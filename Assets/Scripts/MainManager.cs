@@ -28,6 +28,7 @@ public class MainManager : MonoBehaviour
     private decimal miles;
     private static decimal highScore;
     private bool firstTimeHighScore;
+    public bool gameOver;
     public float level;
     public int gas;
 
@@ -40,13 +41,17 @@ public class MainManager : MonoBehaviour
 
         miles = 0.000m;
         firstTimeHighScore = true;
+        gameOver = false;
         level = 1f;
         gas = 100;
     }
 
     void FixedUpdate()
     {
-        AddMiles();
+        if (!gameOver)
+        {
+            AddMiles();   
+        }
     }
 
     private void CreateButtons()
@@ -133,7 +138,7 @@ public class MainManager : MonoBehaviour
         {
             gas = 0;
         }
-        
+
         gasNumberText.text = gas.ToString();
 
         if (gas == 0)
@@ -155,6 +160,7 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOver = true;
         gameOverText.SetActive(true);
         restartButton.gameObject.SetActive(true);
     }
