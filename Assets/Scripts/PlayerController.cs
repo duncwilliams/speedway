@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Good"))
         {
-            mainManager.AddPoints(1);
+            mainManager.FuelUp();
             Destroy(other);
         }
         else if (other.CompareTag("Bad") || other.CompareTag("Death"))

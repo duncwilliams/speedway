@@ -13,6 +13,7 @@ public class MainManager : MonoBehaviour
     // UI
     public TextMeshProUGUI scoreCounterText;
     public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI gasNumberText;
     public GameObject gameOverText;
     public GameObject speedUpText;
     public GameObject newHighScoreText;
@@ -24,21 +25,28 @@ public class MainManager : MonoBehaviour
     public LevelLoader levelLoader;
 
     // scores and levels
-    private int points;
-    private static int highScore;
+    private decimal miles;
+    private static decimal highScore;
     private bool firstTimeHighScore;
     public float level;
+    public int gas;
 
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CreateButtons();
         UpdateHighScore(highScore);
 
-        points = 0;
+        miles = 0.000m;
         firstTimeHighScore = true;
         level = 1f;
+        gas = 100;
+    }
+
+    void FixedUpdate()
+    {
+        AddMiles();
     }
 
     private void CreateButtons()
@@ -65,34 +73,31 @@ public class MainManager : MonoBehaviour
         levelLoader.LoadLevel("Main");
     }
 
-    public void AddPoints(int pointsToAdd)
+    public void AddMiles()
     {
-        points += pointsToAdd;
+        miles += 0.001m;
+        scoreCounterText.text = miles + " miles";
 
-        if (points > highScore)
+        if ((miles > 0.100m) && (miles > highScore))
         {
-            UpdateHighScore(points);
+            UpdateHighScore(miles);
         }
 
-        if (points == 1)
-        {
-            scoreCounterText.text = points + " Point";  
-        }
-        else
-        {
-            scoreCounterText.text = points + " Points";
-        }
-
-        if (points % 10 == 0)
+        if (miles % 0.500m == 0.000m)
         {
             LevelUp();
         }
+
+        if (miles % .020m == 0m)
+        {
+            BurnGas();
+        }
     }
 
-    private void UpdateHighScore(int newHighScore)
+    private void UpdateHighScore(decimal newHighScore)
     {
         highScore = newHighScore;
-        highScoreText.text = "High Score: " + highScore;
+        highScoreText.text = "High Score: " + highScore + " mi.";
 
         if (firstTimeHighScore)
         {
@@ -106,6 +111,35 @@ public class MainManager : MonoBehaviour
         level += 0.25f;
         StartCoroutine(FlashText(speedUpText, numFlashes, flashesWaitTime));
         spawnManager.SpeedUp(level);
+    }
+
+    public void FuelUp()
+    {
+        gas += 5;
+
+        if (gas > 100)
+        {
+            gas = 100;
+        }
+
+        gasNumberText.text = gas.ToString();
+    }
+
+    public void BurnGas()
+    {
+        gas--;
+
+        if (gas < 0)
+        {
+            gas = 0;
+        }
+        
+        gasNumberText.text = gas.ToString();
+
+        if (gas == 0)
+        {
+            GameOver();
+        }
     }
 
     IEnumerator FlashText(GameObject text, int flashTimes, float waitTime)
