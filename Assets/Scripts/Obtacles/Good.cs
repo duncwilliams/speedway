@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// INHERITANCE
 public class Good : Obstacle
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -11,8 +10,7 @@ public class Good : Obstacle
         pointValue = 5f;
         speed = 500f;
     }
-
-    // POLYMORPHISM
+    
     public override void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
