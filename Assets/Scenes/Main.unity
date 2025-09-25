@@ -519,7 +519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -150, y: 100}
+  m_AnchoredPosition: {x: -125, y: 100}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192936030
@@ -621,6 +621,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192936028}
   m_CullTransparentMesh: 1
+--- !u!1001 &194983544
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622847995177226677, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_Name
+      value: Road Line (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
 --- !u!1 &235379255
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +848,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -150, y: 50}
+  m_AnchoredPosition: {x: -125, y: 50}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293331221
@@ -1167,7 +1224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5c50072de82347972909970b1ef85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  horizontalSpeed: 8
+  outOfGasSpeed: 2
+  rotationSpeed: 22
+  rotationResetSpeed: 4
 --- !u!54 &432207858
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2141,8 +2201,66 @@ MonoBehaviour:
   newHighScoreText: {fileID: 767308726}
   spawnManager: {fileID: 2066095708}
   levelLoader: {fileID: 1037347126}
+  gameOver: 0
   level: 0
   gas: 0
+--- !u!1001 &948212385
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143897196514747610, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622847995177226677, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+      propertyPath: m_Name
+      value: Road Line
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
 --- !u!1001 &1037347125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2190,6 +2308,10 @@ PrefabInstance:
     - target: {fileID: 533111503367234554, guid: b432e7b4e2bb7874c96a00b1d9b22d3e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656142298654111550, guid: b432e7b4e2bb7874c96a00b1d9b22d3e, type: 3}
+      propertyPath: m_Name
+      value: Level Loader
       objectReference: {fileID: 0}
     - target: {fileID: 8494018733244934767, guid: b432e7b4e2bb7874c96a00b1d9b22d3e, type: 3}
       propertyPath: m_Name
@@ -2481,7 +2603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5c50072de82347972909970b1ef85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  horizontalSpeed: 8
+  outOfGasSpeed: 2
+  rotationSpeed: 1
+  rotationResetSpeed: 100
 --- !u!1 &1675219467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2977,7 @@ MonoBehaviour:
   obstacles:
   - {fileID: 8154112224489066889, guid: be8e6e51ec79f474cb79a621d667df9d, type: 3}
   - {fileID: 8154112224489066889, guid: c80659c4503d5034e86510c03c9841e6, type: 3}
+  roadLine: {fileID: 8622847995177226677, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
 --- !u!1001 &2104095996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2952,3 +3078,5 @@ SceneRoots:
   - {fileID: 496170970}
   - {fileID: 527098790}
   - {fileID: 1037347125}
+  - {fileID: 948212385}
+  - {fileID: 194983544}
