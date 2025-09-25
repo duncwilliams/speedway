@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private MainManager mainManager;
 
     public float horizontalSpeed = 8f;
+    public float outOfGasSpeed = 2f;
     public float rotationSpeed = 100f;
     public float rotationResetSpeed = 100f;
     
@@ -21,8 +22,14 @@ public class PlayerController : MonoBehaviour
         if (!mainManager.gameOver)
         {
             HorizontalMovement();
-            StraightenCar();
         }
+        else
+        {
+            // have car slip back out of screen if runs out of gas
+            DriftCarBackwards();
+        }
+
+        StraightenCar();
     }
 
     private void HorizontalMovement()
@@ -45,6 +52,12 @@ public class PlayerController : MonoBehaviour
         Quaternion newRotation = Quaternion.Slerp(currentRotation, targetRotation, rotationResetSpeed * Time.fixedDeltaTime);
         
         rb.MoveRotation(newRotation);
+    }
+
+    private void DriftCarBackwards()
+    {
+        Vector3 backwardMovement = Vector3.back * outOfGasSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + backwardMovement);
     }
 
     void OnTriggerEnter(Collider other)
