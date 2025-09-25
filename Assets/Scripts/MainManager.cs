@@ -90,7 +90,7 @@ public class MainManager : MonoBehaviour
 
         if (miles % 0.500m == 0.000m)
         {
-            LevelUp();
+            SpeedUp();
         }
 
         if (miles % .020m == 0m)
@@ -111,7 +111,7 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    public void LevelUp()
+    private void SpeedUp()
     {
         level += 0.25f;
         StartCoroutine(FlashText(speedUpText, numFlashes, flashesWaitTime));
@@ -127,10 +127,10 @@ public class MainManager : MonoBehaviour
             gas = 100;
         }
 
-        gasNumberText.text = gas.ToString();
+        UpdateGasNumberText();
     }
 
-    public void BurnGas()
+    private void BurnGas()
     {
         gas--;
 
@@ -139,12 +139,30 @@ public class MainManager : MonoBehaviour
             gas = 0;
         }
 
-        gasNumberText.text = gas.ToString();
+        UpdateGasNumberText();
 
         if (gas == 0)
         {
             GameOver();
         }
+    }
+
+    private void UpdateGasNumberText()
+    {
+        if (gas >= 75)
+        {
+            gasNumberText.color = Color.green;
+        }
+        else if (gas >= 25)
+        {
+            gasNumberText.color = Color.yellow;
+        }
+        else
+        {
+           gasNumberText.color = Color.red; 
+        }
+
+        gasNumberText.text = gas.ToString();
     }
 
     IEnumerator FlashText(GameObject text, int flashTimes, float waitTime)

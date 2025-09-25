@@ -5,7 +5,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private MainManager mainManager;
 
-    public float speed = 2f;
+    public float horizontalSpeed = 8f;
+    public float rotationSpeed = 100f;
+    public float rotationResetSpeed = 100f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,14 +18,33 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        HorizontalMovement();
+        if (!mainManager.gameOver)
+        {
+            HorizontalMovement();
+            StraightenCar();
+        }
     }
 
     private void HorizontalMovement()
     {
+        // move car left and right on global axis
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 horizontalMovement = horizontalInput * transform.right * speed * Time.fixedDeltaTime;
+        Vector3 horizontalMovement = horizontalInput * Vector3.right * horizontalSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + horizontalMovement);
+
+        // rotate car along the x axis to imitate swerving/steering like car does
+        float rotation = horizontalInput * (rotationSpeed * 5) * Time.fixedDeltaTime;
+        Quaternion turnRotation = Quaternion.Euler(0f, rotation, 0f);
+        rb.MoveRotation(rb.rotation * turnRotation);
+    }
+
+    private void StraightenCar()
+    {
+        Quaternion currentRotation = rb.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
+        Quaternion newRotation = Quaternion.Slerp(currentRotation, targetRotation, rotationResetSpeed * Time.fixedDeltaTime);
+        
+        rb.MoveRotation(newRotation);
     }
 
     void OnTriggerEnter(Collider other)
