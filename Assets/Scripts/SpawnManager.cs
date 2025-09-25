@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
         CancelInvoke("SpawnRoadLines");
         spawnDelay /= level;
         InvokeRepeating("SpawnObstacles", spawnDelay, spawnDelay);
-        InvokeRepeating("SpawnRoadLines", spawnDelay, spawnDelay);
+        InvokeRepeating("SpawnRoadLines", 0f, spawnDelay);
     }
 
     public void StopSpawning()

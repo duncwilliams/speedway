@@ -10,4 +10,12 @@ public class RoadLine : Obstacle
 
         speed = roadLineSpeed;
     }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Backstop"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
