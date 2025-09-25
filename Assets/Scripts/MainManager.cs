@@ -181,6 +181,8 @@ public class MainManager : MonoBehaviour
     {
         gameOver = true;
 
+        spawnManager.StopSpawning();
+
         // set gas to zero if game over by car explosion
         if (gas != 0)
         {

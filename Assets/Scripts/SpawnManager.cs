@@ -22,6 +22,11 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnObstacles", spawnDelay, spawnDelay);
     }
 
+    public void StopSpawning()
+    {
+        CancelInvoke("SpawnObstacles");
+    }
+
     private void SpawnObstacles()
     {
         // Set random spawn location and random object index
