@@ -134,6 +134,7 @@ public class MainManager : MonoBehaviour
     {
         gas--;
 
+        // protection against negative gas values
         if (gas < 0)
         {
             gas = 0;
@@ -179,6 +180,14 @@ public class MainManager : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
+
+        // set gas to zero if game over by car explosion
+        if (gas != 0)
+        {
+            gas = 0;
+            UpdateGasNumberText();
+        }
+
         gameOverText.SetActive(true);
         restartButton.gameObject.SetActive(true);
     }
