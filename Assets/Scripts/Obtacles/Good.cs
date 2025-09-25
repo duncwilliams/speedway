@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Good : Obstacle
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float goodSpeed = 500f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        pointValue = 5f;
-        speed = 500f;
+        speed = goodSpeed;
     }
     
     public override void OnTriggerEnter(Collider other)

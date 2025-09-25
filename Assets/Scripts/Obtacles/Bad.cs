@@ -1,18 +1,16 @@
 using UnityEngine;
 
-// INHERITANCE
 public class Bad : Obstacle
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float badSpeed = 250f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        pointValue = -5f;
-        speed = 250f;
+        speed = badSpeed;
     }
 
-    // POLYMORPHISM
     public override void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
