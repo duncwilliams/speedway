@@ -142,7 +142,7 @@ public class MainManager : MonoBehaviour
 
     public void FuelUp()
     {
-        gas += 5;
+        gas += 6;
 
         if (gas > 100)
         {
