@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private MainManager mainManager;
 
-    public float horizontalSpeed = 8f;
+    public float horizontalSpeed = 8.8f;
     public float outOfGasSpeed = 2f;
     public float rotationSpeed = 100f;
     public float rotationResetSpeed = 100f;

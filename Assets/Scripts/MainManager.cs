@@ -17,6 +17,7 @@ public class MainManager : MonoBehaviour
     public GameObject gameOverText;
     public GameObject speedUpText;
     public GameObject newHighScoreText;
+    public GameObject maxSpeedText;
     private int numFlashes = 3;
     private float flashesWaitTime = 0.2f;
 
@@ -24,14 +25,15 @@ public class MainManager : MonoBehaviour
     public SpawnManager spawnManager;
     public LevelLoader levelLoader;
 
-    // scores and levels
+    // scores and speed
     private decimal miles;
     private static decimal highScore;
     private bool firstTimeHighScore;
     public bool gameOver;
-    public float level;
+    private int speed;
+    private int maxSpeed = 8;
+    private int burnRate;
     public int gas;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,10 +41,11 @@ public class MainManager : MonoBehaviour
         CreateButtons();
         UpdateHighScore(highScore);
 
-        miles = 0.000m;
+        miles = 0.001m;
         firstTimeHighScore = true;
         gameOver = false;
-        level = 1f;
+        speed = 1;
+        burnRate = 1;
         gas = 100;
     }
 
@@ -88,7 +91,7 @@ public class MainManager : MonoBehaviour
             UpdateHighScore(miles);
         }
 
-        if (miles % 0.500m == 0.000m)
+        if (miles % .500m == 0m)
         {
             SpeedUp();
         }
@@ -113,9 +116,28 @@ public class MainManager : MonoBehaviour
 
     private void SpeedUp()
     {
-        level += 0.25f;
-        StartCoroutine(FlashText(speedUpText, numFlashes, flashesWaitTime));
-        spawnManager.SpeedUp(level);
+        speed++;
+
+        // increase spawn rate of objects
+        if (speed < maxSpeed)
+        {
+            StartCoroutine(FlashText(speedUpText, numFlashes, flashesWaitTime));
+            spawnManager.SpeedUp();
+
+            // increase burn rate at around middle of max speed
+            if (speed == 4)
+            {
+                burnRate++;
+            }
+        }
+        else if (speed == maxSpeed)
+        {
+            StartCoroutine(FlashText(maxSpeedText, numFlashes + 2, flashesWaitTime));
+            spawnManager.SpeedUp();
+
+            // increase burn rate again at max speed
+            burnRate++;
+        }
     }
 
     public void FuelUp()
@@ -132,7 +154,7 @@ public class MainManager : MonoBehaviour
 
     private void BurnGas()
     {
-        gas--;
+        gas -= burnRate;
 
         // protection against negative gas values
         if (gas < 0)
