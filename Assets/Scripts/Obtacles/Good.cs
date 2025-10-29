@@ -3,12 +3,14 @@ using UnityEngine;
 public class Good : Obstacle
 {
     public float goodSpeed = 500f;
+    public float goodRotationSpeed = 100f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         speed = goodSpeed;
+        rotationSpeed = goodRotationSpeed;
     }
     
     public override void OnTriggerEnter(Collider other)
