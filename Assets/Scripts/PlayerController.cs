@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
     private MainManager mainManager;
 
     public float horizontalSpeed = 8.8f;
-    public float verticalSpeed = 8.8f;
+    public float verticalSpeed = 4f;
     public float outOfGasSpeed = 2f;
     public float rotationSpeed = 100f;
     public float rotationResetSpeed = 100f;
-    public float pullSpeed = 8.8f;
+    public float pullSpeed = 2f;
 
     private float forwardLimit = -2f;
     private float backwardLimit = -7.5f;
