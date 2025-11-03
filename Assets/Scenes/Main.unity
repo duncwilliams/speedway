@@ -1375,9 +1375,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 8
+  verticalSpeed: 8.8
   outOfGasSpeed: 2
   rotationSpeed: 22
   rotationResetSpeed: 4
+  pullSpeed: 8.8
 --- !u!54 &432207858
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2813,9 +2815,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 8.8
+  verticalSpeed: 8.8
   outOfGasSpeed: 2
   rotationSpeed: 1
   rotationResetSpeed: 100
+  pullSpeed: 8.8
 --- !u!1 &1675219467
 GameObject:
   m_ObjectHideFlags: 0
@@ -3220,7 +3224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.283
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3252,7 +3256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
       propertyPath: m_Name
-      value: car
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
       propertyPath: m_TagString
