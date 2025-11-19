@@ -1374,6 +1374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5c50072de82347972909970b1ef85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gasParticle: {fileID: 1934464474}
   horizontalSpeed: 8
   verticalSpeed: 4
   outOfGasSpeed: 2
@@ -1428,6 +1429,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9066794, y: 1.4852778, z: 5.338532}
   m_Center: {x: -0.45683885, y: -0.24263386, z: 0.0011202294}
+--- !u!4 &432207860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
+  m_PrefabInstance: {fileID: 2104095996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &451490633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,6 +2668,71 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &1639012190
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 432207860}
+    m_Modifications:
+    - target: {fileID: 839387000816325918, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_Name
+      value: GasParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.29735082
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542673653363610503, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542673653363610503, guid: 14f648391dca34921890423064cd02a4, type: 3}
+      propertyPath: 'CollisionModule.m_Planes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 72653087}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14f648391dca34921890423064cd02a4, type: 3}
 --- !u!1 &1651853672
 GameObject:
   m_ObjectHideFlags: 0
@@ -2814,6 +2885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5c50072de82347972909970b1ef85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gasParticle: {fileID: 0}
   horizontalSpeed: 8.8
   verticalSpeed: 8.8
   outOfGasSpeed: 2
@@ -3067,6 +3139,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761488954}
   m_CullTransparentMesh: 1
+--- !u!4 &1934464472 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 958906928229052912, guid: 14f648391dca34921890423064cd02a4, type: 3}
+  m_PrefabInstance: {fileID: 1639012190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1934464474 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8542673653363610503, guid: 14f648391dca34921890423064cd02a4, type: 3}
+  m_PrefabInstance: {fileID: 1639012190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1973963665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,7 +3347,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934464472}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 069a0f3a0821d45498620b3e00ea00b3, type: 3}
       insertIndex: -1
