@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private MainManager mainManager;
 
+    public ParticleSystem gasParticle;
+
     public float horizontalSpeed = 8.8f;
     public float verticalSpeed = 4f;
     public float outOfGasSpeed = 2f;
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Good"))
         {
             mainManager.FuelUp();
+            gasParticle.Play();
             Destroy(other);
         }
         else if (other.CompareTag("Bad") || other.CompareTag("Death"))
