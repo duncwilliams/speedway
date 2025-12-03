@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private MainManager mainManager;
 
-    public ParticleSystem gasParticle;
+    public ParticleSystem exhaustEffect;
+    public ParticleSystem gasUpEffect;
+    public GameObject explosionEffect;
 
     public float horizontalSpeed = 8.8f;
     public float verticalSpeed = 4f;
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             // have car slip back out of screen if runs out of gas
             DriftCarBackwards();
+            exhaustEffect.gameObject.SetActive(false);
         }
 
         StraightenCar();
@@ -110,13 +113,14 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Good"))
         {
             mainManager.FuelUp();
-            gasParticle.Play();
+            gasUpEffect.Play();
             Destroy(other);
         }
         else if (other.CompareTag("Bad") || other.CompareTag("Death"))
         {
             mainManager.GameOver();
             gameObject.SetActive(false);
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
         }
     }
 }
