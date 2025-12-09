@@ -1386,6 +1386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exhaustEffect: {fileID: 229514865}
   gasUpEffect: {fileID: 1934464474}
+  collectEffect: {fileID: 1288129389638158793, guid: e25dd28907973cf499e66015e1907c7d, type: 3}
   explosionEffect: {fileID: 2636629885164943935, guid: b3562c763f3ce4e4ab0bce881aea0b5f, type: 3}
   horizontalSpeed: 8
   verticalSpeed: 4
@@ -2947,6 +2948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exhaustEffect: {fileID: 0}
   gasUpEffect: {fileID: 0}
+  collectEffect: {fileID: 0}
   explosionEffect: {fileID: 0}
   horizontalSpeed: 8.8
   verticalSpeed: 8.8
