@@ -190,7 +190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f1ef37ae953c484bbc5d5e4049147e5, type: 2}
+  - {fileID: 2100000, guid: db168063d7652814aa8e214ebac37362, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3453,6 +3453,7 @@ MonoBehaviour:
   - {fileID: 8154112224489066889, guid: be8e6e51ec79f474cb79a621d667df9d, type: 3}
   - {fileID: 8154112224489066889, guid: c80659c4503d5034e86510c03c9841e6, type: 3}
   roadLine: {fileID: 8622847995177226677, guid: 3e6ee5a78c17e514aad36fcd28b74145, type: 3}
+  speedBump: {fileID: 9158333710034311884, guid: e8152e6ec8bb79f409fcb39af7a08524, type: 3}
 --- !u!1001 &2104095996
 PrefabInstance:
   m_ObjectHideFlags: 0

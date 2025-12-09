@@ -4,6 +4,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstacles;
     public GameObject roadLine;
+    public GameObject speedBump;
 
     private float speedIncrement = 0.12f;
     private float spawnDelay = 1f;
@@ -16,15 +17,18 @@ public class SpawnManager : MonoBehaviour
 
         InvokeRepeating("SpawnObstacles", spawnDelay, spawnDelay);
         InvokeRepeating("SpawnRoadLines", 0f, spawnDelay);
+        InvokeRepeating("SpawnSpeedBump", 5f, 5f);
     }
 
     public void SpeedUp()
     {
         CancelInvoke("SpawnObstacles");
         CancelInvoke("SpawnRoadLines");
+        CancelInvoke("SpawnSpeedBump");
         spawnDelay -= speedIncrement;
         InvokeRepeating("SpawnObstacles", spawnDelay, spawnDelay);
         InvokeRepeating("SpawnRoadLines", 0.2f, spawnDelay);
+        InvokeRepeating("SpawnSpeedBump", 5f, 5f);
     }
 
     public void StopSpawning()
@@ -48,5 +52,11 @@ public class SpawnManager : MonoBehaviour
     {
         Vector3 spawnLocation = new Vector3(spawnPoint.x, 0.05f, spawnPoint.z);
         Instantiate(roadLine, spawnLocation, roadLine.transform.rotation);
+    }
+
+    private void SpawnSpeedBump()
+    {
+        Vector3 spawnLocation = new Vector3(0f, 0f, spawnPoint.z);
+        Instantiate(speedBump, spawnLocation, speedBump.transform.rotation);
     }
 }
