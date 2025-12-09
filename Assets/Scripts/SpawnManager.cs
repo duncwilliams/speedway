@@ -38,7 +38,10 @@ public class SpawnManager : MonoBehaviour
         Vector3 spawnLocation = new Vector3(Random.Range(-3.5f, 3.5f), spawnPoint.y, spawnPoint.z);
         int index = Random.Range(0, obstacles.Length);
 
-        Instantiate(obstacles[index], spawnLocation, obstacles[index].transform.rotation);
+        GameObject obstacle = obstacles[index];
+        float randomYRotation = Random.Range(0f, 360f);
+
+        Instantiate(obstacle, spawnLocation, Quaternion.Euler(obstacle.transform.rotation.x, randomYRotation, obstacle.transform.rotation.z));
     }
 
     private void SpawnRoadLines()
