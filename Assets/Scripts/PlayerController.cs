@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public ParticleSystem exhaustEffect;
     public ParticleSystem gasUpEffect;
+    public ParticleSystem collectEffect;
     public GameObject explosionEffect;
 
     public float horizontalSpeed = 8.8f;
@@ -112,6 +113,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Good"))
         {
+            Vector3 otherPosition = other.transform.position;
+             Instantiate(collectEffect, otherPosition, Quaternion.identity);
+            
             mainManager.FuelUp();
             gasUpEffect.Play();
             Destroy(other);
