@@ -68,7 +68,8 @@ public class MainManager : MonoBehaviour
         backToMenuButton.onClick.AddListener(BackToMenu);
         restartButton.onClick.AddListener(Restart);
 
-        // Hide Restart Button
+        // Hide Back to Menu and Restart Button
+        backToMenuButton.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
     }
 
@@ -216,5 +217,6 @@ public class MainManager : MonoBehaviour
 
         gameOverText.SetActive(true);
         restartButton.gameObject.SetActive(true);
+        backToMenuButton.gameObject.SetActive(true);
     }
 }
