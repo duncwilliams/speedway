@@ -23,6 +23,7 @@ public class MainManager : MonoBehaviour
 
     // other managers
     public SpawnManager spawnManager;
+    public TextureScroll textureScroll;
     public LevelLoader levelLoader;
 
     // scores and speed
@@ -123,6 +124,7 @@ public class MainManager : MonoBehaviour
         {
             StartCoroutine(FlashText(speedUpText, numFlashes, flashesWaitTime));
             spawnManager.SpeedUp();
+            textureScroll.SpeedUpScroll();
 
             // increase burn rate at around middle of max speed
             if (speed == 4)
