@@ -4,14 +4,24 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstacles;
 
-    private float speedIncrement = 0.12f;
+    private float spawnFreqIncrement = 0.10f;
+    private float speedIncrement = 100f;
     private float spawnDelay = 1f;
     private Vector3 spawnPoint;
+
+    public Bad bad;
+    public Good good;
+
+    public float startingGoodSpeed;
+    public float startingBadSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spawnPoint = GameObject.Find("Spawn Point").transform.position;
+
+        bad.badSpeed = startingBadSpeed;
+        good.goodSpeed = startingGoodSpeed;
 
         InvokeRepeating("SpawnObstacles", spawnDelay, spawnDelay);
     }
@@ -19,7 +29,9 @@ public class SpawnManager : MonoBehaviour
     public void SpeedUp()
     {
         CancelInvoke("SpawnObstacles");
-        spawnDelay -= speedIncrement;
+        spawnDelay -= spawnFreqIncrement;
+        bad.badSpeed += speedIncrement;
+        good.goodSpeed += speedIncrement;
         InvokeRepeating("SpawnObstacles", spawnDelay, spawnDelay);
     }
 
