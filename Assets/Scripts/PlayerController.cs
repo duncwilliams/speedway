@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
              Instantiate(collectEffect, otherPosition, Quaternion.identity);
             
             mainManager.FuelUp();
+            SoundManager.Instance.PlaySound("gas");
             gasUpEffect.Play();
             Destroy(other);
         }
@@ -124,6 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             mainManager.GameOver();
             gameObject.SetActive(false);
+            SoundManager.Instance.PlaySound("explosion");
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
         }
     }
