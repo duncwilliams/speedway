@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    private static MusicPlayer instance;
+    private static MusicPlayer Instance;
     
     void Awake()
     {
         // check if the music player already exists
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             // if it does exist, destroy the new one
             Destroy(this.gameObject);
@@ -15,7 +15,7 @@ public class MusicPlayer : MonoBehaviour
         }
 
         // if it doesn't exist, set this as the instance and keep it alive between scenes
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
 }

@@ -124,6 +124,7 @@ public class MainManager : MonoBehaviour
         if (speed < maxSpeed)
         {
             StartCoroutine(FlashText(speedUpText, numFlashes, flashesWaitTime));
+            SoundManager.Instance.PlaySound("speedup");
             spawnManager.SpeedUp();
             textureScroll.SpeedUpScroll();
 
@@ -136,7 +137,9 @@ public class MainManager : MonoBehaviour
         else if (speed == maxSpeed)
         {
             StartCoroutine(FlashText(maxSpeedText, numFlashes + 2, flashesWaitTime));
+            SoundManager.Instance.PlaySound("maxspeed");
             spawnManager.SpeedUp();
+            textureScroll.SpeedUpScroll();
 
             // increase burn rate again at max speed
             burnRate++;
