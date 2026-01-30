@@ -3,7 +3,7 @@ using UnityEngine;
 public class TextureScroll : MonoBehaviour
 {
     public float scrollSpeedY = -0.35f;
-    public float scrollSpeedUpInterval = 0.05f;
+    public float scrollSpeedUpInterval = 0.038f;
     private Renderer rend;
 
     void Start()
