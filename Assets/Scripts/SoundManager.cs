@@ -5,6 +5,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
     public Sound[] sounds;
     private AudioSource audioSource;
+    private AudioSource gasAudioSource;
 
     void Awake()
     {
@@ -17,6 +18,7 @@ public class SoundManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
         audioSource = gameObject.AddComponent<AudioSource>();
+        gasAudioSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void PlaySound(string soundName)
@@ -24,19 +26,16 @@ public class SoundManager : MonoBehaviour
         Sound sound = Array.Find(sounds, s => s.name == soundName);
         if (sound != null)
         {
-            audioSource.volume = sound.volume;
-            
             // if pitch is set to 0, randomize it slightly for variety
-            if (sound.pitch == 0f)
+            if (soundName == "gas")
             {
-                audioSource.pitch = UnityEngine.Random.Range(0.85f, 1.05f);
-            }
-            else
+                gasAudioSource.pitch = UnityEngine.Random.Range(0.85f, 1.05f);
+                gasAudioSource.PlayOneShot(sound.clip, sound.volume);
+            } else
             {
-                audioSource.pitch = sound.pitch;
+                audioSource.PlayOneShot(sound.clip, sound.volume);
             }
             
-            audioSource.PlayOneShot(sound.clip);
         }
         else
         {
