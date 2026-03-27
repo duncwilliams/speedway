@@ -1170,13 +1170,13 @@ MonoBehaviour:
     volume: 0.7
     pitch: 0
   - name: speedup
-    clip: {fileID: 8300000, guid: 1c67ccf325972024ba26ef72f7e91d5b, type: 3}
+    clip: {fileID: 8300000, guid: 2ad5002ca5d1f2541b3ecc6d962c5306, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
   - name: maxspeed
-    clip: {fileID: 8300000, guid: 8202e0198dbb0384ca052bee0a867afd, type: 3}
+    clip: {fileID: 8300000, guid: 101d27869c4a77c4ba432942d77505e4, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
 --- !u!4 &309168495
 Transform:
   m_ObjectHideFlags: 0
@@ -1981,7 +1981,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
